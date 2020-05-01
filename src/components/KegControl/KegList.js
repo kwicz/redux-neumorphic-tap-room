@@ -16,8 +16,8 @@ function KegList(props){
   return (
     <React.Fragment  >
       <Grid className={classes.root} container spacing={2}>
-        {props.kegList.map((keg) =>
-          <Grid item item xs={6} sm={4} md={3} lg={2}>
+        {Object.values(props.kegList).map((keg) => {
+          return <Grid item item xs={6} sm={4} md={3} lg={2}>
             <Keg 
               whenKegClicked = { props.onKegSelection }
               onClickingOrder = { props.onClickingOrder }
@@ -30,14 +30,14 @@ function KegList(props){
               id={keg.id}
               key={keg.id}/>
           </Grid>
-        )}
+        })}
       </Grid>
     </React.Fragment>
   );
 }
 
 KegList.propTypes = {
-  keglist: PropTypes.array,
+  keglist: PropTypes.object,
   onKegSelection: PropTypes.func,
   onClickingOrder: PropTypes.func
 };
