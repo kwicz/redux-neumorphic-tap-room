@@ -69,5 +69,4 @@ describe('kegListReducer', () => {
       id: 2 }
     });
   });
-
 });
