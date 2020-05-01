@@ -7,7 +7,7 @@ describe('kegListReducer', () => {
     name: 'Isolation Vacation',
     brand: 'Corona',
     description: 'A little bit boring, just like your life now.',
-    alchoholContent: '5.5',
+    alcoholContent: '5.5',
     price: 5,
     id: 1
   };
@@ -16,13 +16,13 @@ describe('kegListReducer', () => {
     1: {name: 'Isolation Vacation',
     brand: 'Corona',
     description: 'A little bit boring, just like your life now.',
-    alchoholContent: '5.5',
+    alcoholContent: '5.5',
     price: 5,
     id: 1 },
     2: {name: 'Flamingo Dreams',
     brand: 'Ecliptic Brewing',
     description: 'Guave Blonde Ale',
-    alchoholContent: '6.5',
+    alcoholContent: '6.5',
     price: 6,
     id: 2 }
   }
@@ -64,7 +64,7 @@ describe('kegListReducer', () => {
       2: {name: 'Flamingo Dreams',
       brand: 'Ecliptic Brewing',
       description: 'Guave Blonde Ale',
-      alchoholContent: '6.5',
+      alcoholContent: '6.5',
       price: 6,
       id: 2 }
     });
