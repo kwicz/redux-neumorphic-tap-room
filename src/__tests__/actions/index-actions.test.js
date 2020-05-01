@@ -27,4 +27,19 @@ describe('tap room actions', () => {
       id: 1
     });
   });
+
+  it('buyPint should create BUY_PINT action', () => {
+    expect(actions.buyPint({name: 'Isolation Vacation', brand: 'Corona', description: 'A little bit boring, just like your life now.', alcoholContent: '5.5', price: 5, remainingPints: 124, id: 1})).toEqual({
+      type: 'BUY_PINT',
+      name: 'Isolation Vacation',
+      brand: 'Corona',
+      description: 'A little bit boring, just like your life now.',
+      alcoholContent: '5.5',
+      price: 5,
+      remainingPints: 123,
+      id: 1
+    });
+  });
+
+
 });
