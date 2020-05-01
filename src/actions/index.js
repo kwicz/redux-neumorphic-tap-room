@@ -34,3 +34,17 @@ export const buyPint = (keg) => {
     id: id    
   }
 }
+
+export const selectedKeg = (keg) => {
+  const { name, brand, description, alcoholContent, price, remainingPints, id } = keg;
+  return {
+    type: 'SELECTED_KEG',
+    name: name,
+    brand: brand,
+    description: description,
+    alcoholContent: alcoholContent,
+    price: price,
+    remainingPints: remainingPints,
+    id: id
+  }
+}

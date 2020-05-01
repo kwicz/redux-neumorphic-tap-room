@@ -46,14 +46,22 @@ class KegControl extends React.Component {
   }
 
   handleOrderingPint = (id) => {
-    const selectedKeg = this.state.masterKegList.filter(keg => keg.id ===id)[0];
-    const updatedPints = selectedKeg.remainingPints - 1;
-    const updatedKeg = {...selectedKeg, remainingPints: updatedPints};
-    const kegList = this.state.masterKegList.filter(keg => keg.id !== id);
-    this.setState({
-      masterKegList: [...kegList, updatedKeg],
-      selectedKeg: updatedKeg
-    });
+    const { dispatch } = this.props;
+    const action = a.buyPint(id);
+    dispatch(action);
+    // this.setState({
+    //   selectedKeg: updatedKeg
+    // })
+
+
+    // const selectedKeg = this.state.masterKegList.filter(keg => keg.id ===id)[0];
+    // const updatedPints = selectedKeg.remainingPints - 1;
+    // const updatedKeg = {...selectedKeg, remainingPints: updatedPints};
+    // const kegList = this.state.masterKegList.filter(keg => keg.id !== id);
+    // this.setState({
+    //   masterKegList: [...kegList, updatedKeg],
+    //   selectedKeg: updatedKeg
+    // });
   }
 
   handleQuickOrder = (id) => {
