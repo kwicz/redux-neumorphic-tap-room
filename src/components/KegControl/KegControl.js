@@ -3,6 +3,9 @@ import KegDetails from "./KegDetails";
 import KegList from "./KegList";
 import NewKegForm from "./NewKegForm";
 import EditKegForm from "./EditKegForm";
+import { connect } from 'react-redux';
+import PropTypes from "prop-types";
+import * as a from '../../actions';
 import Button from '@material-ui/core/Button';
 import Add from '@material-ui/icons/Add';
 import ArrowBackIos from '@material-ui/icons/ArrowBackIos';
@@ -66,7 +69,7 @@ class KegControl extends React.Component {
           id: 5
         },
         {
-          name: "Mary Poppins Hard Kombucha",
+          name: "Mary Poppins Kombucha",
           brand: "Sister Suffragettes, inc.",
           description: "Nearly perfect in every way.",
           alcoholContent: "3%",
