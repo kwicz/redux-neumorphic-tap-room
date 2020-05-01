@@ -1,7 +1,7 @@
 import * as c from './../actions/ActionTypes';
 
 export default (state = {}, action) => {
-  const { name, brand, description, alcoholContent, price, id } = action;
+  const { name, brand, description, alcoholContent, price, remainingPints, id } = action;
   switch (action.type) {
   case c.ADD_KEG:
     return Object.assign({}, state, {
@@ -11,6 +11,7 @@ export default (state = {}, action) => {
         description: description,
         alcoholContent: alcoholContent,
         price: price,
+        remainingPints: remainingPints,
         id: id
       }
     });
@@ -18,6 +19,9 @@ export default (state = {}, action) => {
     const newState = { ...state };
     delete newState[id];
     return newState;
+  case c.BUY_PINT:
+    const newRemainingPints = state[id].remainingPints - 1;
+    return state;
   default:
     return state;
   }

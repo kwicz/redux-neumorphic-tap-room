@@ -9,6 +9,7 @@ describe('kegListReducer', () => {
     description: 'A little bit boring, just like your life now.',
     alcoholContent: '5.5',
     price: 5,
+    remainingPints: 124,
     id: 1
   };
 
@@ -18,12 +19,14 @@ describe('kegListReducer', () => {
     description: 'A little bit boring, just like your life now.',
     alcoholContent: '5.5',
     price: 5,
+    remainingPints: 124,
     id: 1 },
     2: {name: 'Flamingo Dreams',
     brand: 'Ecliptic Brewing',
     description: 'Guave Blonde Ale',
     alcoholContent: '6.5',
     price: 6,
+    remainingPints: 124,
     id: 2 }
   }
 
@@ -32,7 +35,7 @@ describe('kegListReducer', () => {
   });
 
   test('Should successfully add new keg data to masterKegList', () => {
-    const { name, brand, description, alcoholContent, price, id } = kegData;
+    const { name, brand, description, alcoholContent, price, remainingPints, id } = kegData;
     action = {
       type: 'ADD_KEG',
       name: name,
@@ -40,6 +43,7 @@ describe('kegListReducer', () => {
       description: description,
       alcoholContent: alcoholContent,
       price: price,
+      remainingPints: remainingPints,
       id: id
     };
 
@@ -50,6 +54,7 @@ describe('kegListReducer', () => {
         description: description,
         alcoholContent: alcoholContent,
         price: price,
+        remainingPints: remainingPints,
         id: id
       }
     });
@@ -66,6 +71,7 @@ describe('kegListReducer', () => {
       description: 'Guave Blonde Ale',
       alcoholContent: '6.5',
       price: 6,
+      remainingPints: 124,
       id: 2 }
     });
   });
