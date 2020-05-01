@@ -75,4 +75,17 @@ describe('kegListReducer', () => {
       id: 2 }
     });
   });
+  
+  test('Should successfully buy a pint', () => {
+    action = {
+      type: 'BUY_PINT',
+      id: 1
+    };
+    expect(kegListReducer(currentState, action)).toEqual({
+      remainingPints: 123,
+      id: 1
+    });
+  });
+
+
 });
