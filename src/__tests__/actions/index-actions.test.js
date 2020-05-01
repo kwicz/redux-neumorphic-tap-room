@@ -36,14 +36,8 @@ describe('tap room actions', () => {
   });
 
   it('selectedKeg should create SELECTED_KEG action', () => {
-    expect(actions.selectedKeg({name: 'Isolation Vacation', brand: 'Corona', description: 'A little bit boring, just like your life now.', alcoholContent: '5.5', price: 5, remainingPints: 124, id: 1})).toEqual({
+    expect(actions.selectedKeg(1)).toEqual({
       type: 'SELECTED_KEG',
-      name: 'Isolation Vacation',
-      brand: 'Corona',
-      description: 'A little bit boring, just like your life now.',
-      alcoholContent: '5.5',
-      price: 5,
-      remainingPints: 124,
       id: 1
     });
   });
