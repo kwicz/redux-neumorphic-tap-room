@@ -9,6 +9,7 @@ import * as a from '../../actions';
 import Button from '@material-ui/core/Button';
 import Add from '@material-ui/icons/Add';
 import ArrowBackIos from '@material-ui/icons/ArrowBackIos';
+import { SELECTED_KEG } from "../../actions/ActionTypes";
 
 
 class KegControl extends React.Component {
@@ -16,7 +17,6 @@ class KegControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedKeg: null,
       editing: false
     };
   }
@@ -41,7 +41,6 @@ class KegControl extends React.Component {
     dispatch(action);
     this.setState({
       editing: false,
-      selectedTicket: null
     });   
   }
 
@@ -49,19 +48,19 @@ class KegControl extends React.Component {
     const { dispatch } = this.props;
     const action = a.buyPint(id);
     dispatch(action);
-    // this.setState({
-    //   selectedKeg: updatedKeg
-    // })
+  // this.setState({
+  //   selectedKeg: updatedKeg
+  // })
 
 
-    // const selectedKeg = this.state.masterKegList.filter(keg => keg.id ===id)[0];
-    // const updatedPints = selectedKeg.remainingPints - 1;
-    // const updatedKeg = {...selectedKeg, remainingPints: updatedPints};
-    // const kegList = this.state.masterKegList.filter(keg => keg.id !== id);
-    // this.setState({
-    //   masterKegList: [...kegList, updatedKeg],
-    //   selectedKeg: updatedKeg
-    // });
+  // const selectedKeg = this.state.masterKegList.filter(keg => keg.id ===id)[0];
+  // const updatedPints = selectedKeg.remainingPints - 1;
+  // const updatedKeg = {...selectedKeg, remainingPints: updatedPints};
+  // const kegList = this.state.masterKegList.filter(keg => keg.id !== id);
+  // this.setState({
+  //   masterKegList: [...kegList, updatedKeg],
+  //   selectedKeg: updatedKeg
+  // });
   }
 
   handleQuickOrder = (id) => {
@@ -84,14 +83,16 @@ class KegControl extends React.Component {
     const { dispatch } = this.props;
     const action = a.deleteKeg(id);
     dispatch(action);
-    this.setState({selectedTicket: null});    
+    const action2 = a.selectedKeg();
+    dispatch(action2);  
   }
 
   handleClick = () => {
     const { dispatch } = this.props;
     const action = a.toggleForm();
     dispatch(action);
-    this.setState({selectedKeg: null});
+    const action2 = a.selectedKeg();
+    dispatch(action2);
   }
 
   render() {
