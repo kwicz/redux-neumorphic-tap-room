@@ -27,8 +27,7 @@ function KegList(props){
               alcoholContent={keg.alcoholContent}
               price={keg.price}
               remainingPints={keg.remainingPints}
-              id={keg.id}
-              key={keg.id}/>
+              id={keg.id}/>
           </Grid>
         })}
       </Grid>

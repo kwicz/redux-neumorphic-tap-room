@@ -1,4 +1,3 @@
-import { EDITING } from "./ActionTypes";
 
 export const deleteKeg = id => ({
   type: 'DELETE_KEG',
