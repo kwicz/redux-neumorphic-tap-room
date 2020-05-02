@@ -15,6 +15,8 @@ export default (state = null, action) => {
       id: id
     }
     return selectedKeg;
+  case c.SELECTED_KEG_NULL:
+    return null;
   default:
     return state;
   }

@@ -30,17 +30,23 @@ export const buyPint = (id) => {
 }
 
 export const selectedKeg = (keg) => {
-  const { name, brand, description, alcoholContent, price, remainingPints, id } = keg;
-  console.log("action keg name: ", name);
-  return {
-    type: 'SELECTED_KEG',
-    name: name,
-    brand: brand,
-    description: description,
-    alcoholContent: alcoholContent,
-    price: price,
-    remainingPints: remainingPints,
-    id: id
+  if (!keg) {
+    return {
+      type: 'SELECTED_KEG_NULL'
+    }
+  } else {
+    const { name, brand, description, alcoholContent, price, remainingPints, id } = keg;
+    console.log("action keg name: ", name);
+    return {
+      type: 'SELECTED_KEG',
+      name: name,
+      brand: brand,
+      description: description,
+      alcoholContent: alcoholContent,
+      price: price,
+      remainingPints: remainingPints,
+      id: id
+    }
   }
 }
 

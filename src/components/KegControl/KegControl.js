@@ -92,6 +92,7 @@ class KegControl extends React.Component {
     dispatch(action);
     const action2 = a.selectedKeg();
     dispatch(action2);  
+    console.log("keg control delete selectedKeg: ", this.props.selectedKeg)
   }
 
   handleClick = () => {
@@ -116,7 +117,7 @@ class KegControl extends React.Component {
     let currentlyVisibleState = null;
     let buttonText = null;
     let buttonIcon = null;
-
+    console.log("store state at render: ", this.state);
     if (this.props.editing ) {      
       currentlyVisibleState = <EditKegForm keg = {this.props.selectedKeg} onEditKeg = {this.handleEditingKegInList} />
       buttonIcon = <ArrowBackIos />;
