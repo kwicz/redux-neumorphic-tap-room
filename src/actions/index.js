@@ -22,10 +22,19 @@ export const addKeg = (keg) => {
   }
 }
 
-export const buyPint = (id) => {
+export const buyPint = (keg) => {
+  console.log("action keg: ", keg);
+  
+  const { name, brand, description, alcoholContent, price, remainingPints, id } = keg;
   return {
     type: 'BUY_PINT',
-    id: id    
+    name: name,
+    brand: brand,
+    description: description,
+    alcoholContent: alcoholContent,
+    price: price,
+    remainingPints: remainingPints,
+    id: id
   }
 }
 

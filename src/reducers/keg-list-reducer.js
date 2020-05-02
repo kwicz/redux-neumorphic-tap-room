@@ -20,16 +20,19 @@ export default (state = {}, action) => {
     delete newState[id];
     return newState;
   case c.BUY_PINT:
-    const newRemainingPints = state[id].remainingPints - 1;
-    const newKegState = Object.assign({}, state[id], {
-      name: name,
-      brand: brand,
-      description: description,
-      alcoholContent: alcoholContent,
-      price: price,
-      remainingPints: newRemainingPints,
-      id: id
+    const newRemainingPints = remainingPints - 1;
+    const newKegState = Object.assign({}, state, {
+      [id]: {
+        name: name,
+        brand: brand,
+        description: description,
+        alcoholContent: alcoholContent,
+        price: price,
+        remainingPints: newRemainingPints,
+        id: id
+      }
     })
+    console.log("newKegState: ", newKegState);
     return newKegState;
   default:
     return state;

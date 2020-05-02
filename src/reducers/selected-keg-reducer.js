@@ -1,7 +1,6 @@
 import * as c from './../actions/ActionTypes';
 
 export default (state = null, action) => {
-  console.log("reducer action: ", action);
   const { name, brand, description, alcoholContent, price, remainingPints, id } = action;
   switch (action.type) {
   case c.SELECTED_KEG:

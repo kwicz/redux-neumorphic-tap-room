@@ -12,10 +12,11 @@ import ArrowBackIos from '@material-ui/icons/ArrowBackIos';
 
 class KegControl extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
+  // works!
   handleAddingNewKegToList = (newKeg) => {
     const { dispatch } = this.props;
     const action = a.addKeg(newKeg);
@@ -61,11 +62,11 @@ class KegControl extends React.Component {
   }
 
   handleQuickOrder = (id) => {
-    const { dispatch } = this.props;
-    const action = a.selectedKeg(id);
+    const { dispatch, masterKegList } = this.props;
+    const kegForQuickOrder = masterKegList[id];
+    console.log("kegForQuickOrder: ", kegForQuickOrder);
+    const action = a.buyPint(kegForQuickOrder);
     dispatch(action);
-    const action2 = a.buyPint(id);
-    dispatch(action2);
     // const selectedKeg = this.state.masterKegList.filter(keg => keg.id ===id)[0];
     // const updatedPints = selectedKeg.remainingPints - 1;
     // const action2 = a.buyPint(id)
@@ -77,24 +78,24 @@ class KegControl extends React.Component {
     // });
   }
 
+  // works!
   handleChangingSelectedKeg = (id) => {
     const { dispatch, masterKegList } = this.props;
     const kegToSelect = masterKegList[id];
-    console.log("keg to select: ", kegToSelect);
     const action = a.selectedKeg(kegToSelect);
-    console.log("action: ", action);
     dispatch (action);
   }
 
+  // works!
   handleDeletingKeg = (id) => {
     const { dispatch } = this.props;
     const action = a.deleteKeg(id);
     dispatch(action);
     const action2 = a.selectedKeg();
     dispatch(action2);  
-    console.log("keg control delete selectedKeg: ", this.props.selectedKeg)
   }
 
+  // works sometimes.
   handleClick = () => {
     const { dispatch } = this.props;
     const action = a.toggleForm();
