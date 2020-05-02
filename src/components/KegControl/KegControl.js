@@ -43,8 +43,10 @@ class KegControl extends React.Component {
   }
 
   handleOrderingPint = (id) => {
-    const { dispatch } = this.props;
-    const action = a.buyPint(id);
+    const { dispatch, masterKegList } = this.props;
+    console.log("handle Ordering Pint state: ", this.props);
+    const selectedKeg = masterKegList[id];
+    const action = a.buyPint(selectedKeg);
     dispatch(action);
   // this.setState({
   //   selectedKeg: updatedKeg
@@ -63,19 +65,9 @@ class KegControl extends React.Component {
 
   handleQuickOrder = (id) => {
     const { dispatch, masterKegList } = this.props;
-    const kegForQuickOrder = masterKegList[id];
-    console.log("kegForQuickOrder: ", kegForQuickOrder);
-    const action = a.buyPint(kegForQuickOrder);
+    const selectedKeg = masterKegList[id];
+    const action = a.buyPint(selectedKeg);
     dispatch(action);
-    // const selectedKeg = this.state.masterKegList.filter(keg => keg.id ===id)[0];
-    // const updatedPints = selectedKeg.remainingPints - 1;
-    // const action2 = a.buyPint(id)
-    // const updatedKeg = {...selectedKeg, remainingPints: updatedPints};
-    // const kegList = this.state.masterKegList.filter(keg => keg.id !== id);
-    // this.setState({
-    //   masterKegList: [...kegList, updatedKeg],
-    //   selectedKeg: null
-    // });
   }
 
   // works!

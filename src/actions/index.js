@@ -23,8 +23,6 @@ export const addKeg = (keg) => {
 }
 
 export const buyPint = (keg) => {
-  console.log("action keg: ", keg);
-  
   const { name, brand, description, alcoholContent, price, remainingPints, id } = keg;
   return {
     type: 'BUY_PINT',
@@ -45,7 +43,6 @@ export const selectedKeg = (keg) => {
     }
   } else {
     const { name, brand, description, alcoholContent, price, remainingPints, id } = keg;
-    console.log("action keg name: ", name);
     return {
       type: 'SELECTED_KEG',
       name: name,

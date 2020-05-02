@@ -15,6 +15,12 @@ describe('tap room actions', () => {
     });
   });
 
+  it('toggleFrom should create EDITING action', () => {
+    expect(actions.editing()).toEqual({
+      type: 'EDITING'
+    });
+  });
+
   it('addKeg should create ADD_KEG action', () => {
     expect(actions.addKeg({name: 'Isolation Vacation', brand: 'Corona', description: 'A little bit boring, just like your life now.', alcoholContent: '5.5', price: 5, remainingPints: 124, id: 1})).toEqual({
       type: 'ADD_KEG',
@@ -29,9 +35,14 @@ describe('tap room actions', () => {
   });
 
   it('buyPint should create BUY_PINT action', () => {
-    expect(actions.buyPint(1)).toEqual({
+    expect(actions.buyPint({name: 'Isolation Vacation', brand: 'Corona', description: 'A little bit boring, just like your life now.', alcoholContent: '5.5', price: 5, remainingPints: 124, id: 1})).toEqual({
       type: 'BUY_PINT',
-
+      name: 'Isolation Vacation',
+      brand: 'Corona',
+      description: 'A little bit boring, just like your life now.',
+      alcoholContent: '5.5',
+      price: 5,
+      remainingPints: 124,
       id: 1
     });
   });
@@ -55,6 +66,5 @@ describe('tap room actions', () => {
       id: 1
     });
   });
-
 
 });
