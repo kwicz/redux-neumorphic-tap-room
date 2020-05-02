@@ -1,3 +1,5 @@
+import { EDITING } from "./ActionTypes";
+
 export const deleteKeg = id => ({
   type: 'DELETE_KEG',
   id
@@ -39,5 +41,11 @@ export const selectedKeg = (keg) => {
     price: price,
     remainingPints: remainingPints,
     id: id
+  }
+}
+
+export const editing = () => {
+  return {
+    type: 'EDITING'
   }
 }
