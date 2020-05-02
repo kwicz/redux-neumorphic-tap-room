@@ -81,7 +81,7 @@ class KegControl extends React.Component {
     const { dispatch, masterKegList } = this.props;
     const kegToSelect = masterKegList[id];
     console.log("keg to select: ", kegToSelect);
-    const action = a.selectedKeg(id);
+    const action = a.selectedKeg(kegToSelect);
     console.log("action: ", action);
     dispatch (action);
   }

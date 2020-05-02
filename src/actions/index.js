@@ -31,6 +31,7 @@ export const buyPint = (id) => {
 
 export const selectedKeg = (keg) => {
   const { name, brand, description, alcoholContent, price, remainingPints, id } = keg;
+  console.log("action keg name: ", name);
   return {
     type: 'SELECTED_KEG',
     name: name,
