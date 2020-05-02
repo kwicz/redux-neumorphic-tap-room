@@ -4,7 +4,7 @@ export default (state = null, action) => {
   const { name, brand, description, alcoholContent, price, remainingPints, id } = action;
   switch (action.type) {
   case c.SELECTED_KEG:
-    const newState = {
+    const selectedKeg = {
       name: name,
       brand: brand,
       description: description,
@@ -13,7 +13,7 @@ export default (state = null, action) => {
       remainingPints: remainingPints,
       id: id
     }
-    return newState;
+    return selectedKeg;
   default:
     return state;
   }
