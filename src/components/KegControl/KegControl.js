@@ -12,57 +12,28 @@ import ArrowBackIos from '@material-ui/icons/ArrowBackIos';
 
 class KegControl extends React.Component {
 
-  // constructor(props) {
-  //   super(props);
-  // }
+  // Allows user to navigate to Add New Keg Page
+  handleClick = () => {
+    const { dispatch } = this.props;
+    console.log("handleClick Props: ", this.props)
+    const action = a.toggleForm();
+    dispatch(action);
+    // const action2 = a.editing();
+    // dispatch(action2);
+    // const action3 = a.selectedKeg();
+    // dispatch(action3);
+  }
 
-  // works!
+  // Allows users to add a new Keg to the MasterKegList object
   handleAddingNewKegToList = (newKeg) => {
     const { dispatch } = this.props;
     const action = a.addKeg(newKeg);
     dispatch(action);
-    const action2 = {
-      type: 'TOGGLE_FORM'
-    }
+    const action2 = a.toggleForm();
     dispatch(action2);
   }
 
-  handleEditClick = () => {
-    const { dispatch } = this.props;
-    const action = a.editing({});
-    dispatch(action);
-  }
-
-  handleEditingKegInList = (kegToEdit) => {
-    const { dispatch } = this.props;
-    const action = a.addKeg(kegToEdit);
-    dispatch(action);
-    // this.setState({
-    //   editing: false,
-    // });   
-  }
-
-  handleOrderingPint = (id) => {
-    const { dispatch, masterKegList } = this.props;
-    console.log("handle Ordering Pint state: ", this.props);
-    const selectedKeg = masterKegList[id];
-    const action = a.buyPint(selectedKeg);
-    dispatch(action);
-  // this.setState({
-  //   selectedKeg: updatedKeg
-  // })
-
-
-  // const selectedKeg = this.state.masterKegList.filter(keg => keg.id ===id)[0];
-  // const updatedPints = selectedKeg.remainingPints - 1;
-  // const updatedKeg = {...selectedKeg, remainingPints: updatedPints};
-  // const kegList = this.state.masterKegList.filter(keg => keg.id !== id);
-  // this.setState({
-  //   masterKegList: [...kegList, updatedKeg],
-  //   selectedKeg: updatedKeg
-  // });
-  }
-
+  // Allows user to handle an order from the landing page.
   handleQuickOrder = (id) => {
     const { dispatch, masterKegList } = this.props;
     const selectedKeg = masterKegList[id];
@@ -70,28 +41,64 @@ class KegControl extends React.Component {
     dispatch(action);
   }
 
-  // works!
+  // Allows user to view details of a selected keg
   handleChangingSelectedKeg = (id) => {
     const { dispatch, masterKegList } = this.props;
-    const kegToSelect = masterKegList[id];
-    const action = a.selectedKeg(kegToSelect);
+    const action = a.selectedKeg(masterKegList[id]);
     dispatch (action);
   }
 
-  // works!
+  // Allows user to view KegList
+  handleGoToKegList = () => {
+    const { dispatch } = this.props;
+    const action = a.selectedKeg();
+    dispatch (action);
+  }
+
+
+  //*************I'm leaving this bit of commented code here because I'd love to discuss it in a meeting.  I can't figure out how to get this one to work. */
+
+  // Allows user to buy a pint from the details page.
+  handleOrderingPint = (id) => {
+    const { dispatch, masterKegList } = this.props;
+    console.log("handle Ordering Pint state: ", this.props);
+    const action = a.buyPint(masterKegList[id]);
+    dispatch(action);
+    const action2 = a.selectedKeg(masterKegList[id]);
+    console.log("updatedKeg: ", action2)
+    dispatch(action);
+    console.log("masterKegList new state: ", masterKegList[id].remainingPints);
+    console.log("selectedKeg state: ", this.props.selectedKeg.remainingPints);
+  }
+
+  // Allows user to navigate to the Update Keg form.
+  handleEditClick = () => {
+    const { dispatch } = this.props;
+    const action = a.editing();
+    dispatch(action);
+  }
+
+  // Allows user to navigate to the Update Keg form.
+  handleEditClick = () => {
+    const { dispatch } = this.props;
+    const action = a.editing();
+    dispatch(action);
+  }
+
+  // Allows user to change the keg details in the MasterKegList object.
+  handleEditingKegInList = (kegToEdit) => {
+    const { dispatch } = this.props;
+    const action = a.addKeg(kegToEdit);
+    dispatch(action);  
+  }
+
+  // Allows user to remove a keg from the tap
   handleDeletingKeg = (id) => {
     const { dispatch } = this.props;
     const action = a.deleteKeg(id);
     dispatch(action);
     const action2 = a.selectedKeg();
     dispatch(action2);  
-  }
-
-  // works sometimes.
-  handleClick = () => {
-    const { dispatch } = this.props;
-    const action = a.toggleForm();
-    dispatch(action);
   }
 
   render() {
@@ -102,42 +109,49 @@ class KegControl extends React.Component {
       marginRight: "auto",
       borderRadius:4,
       width:150,
-        /* Basic styling and alignment */
-      /* For Neumorphism Effect */
       backgroundColor: "#E0E5EC",
       boxShadow: "9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5)"
     }
     let currentlyVisibleState = null;
     let buttonText = null;
     let buttonIcon = null;
-    console.log("store state at render: ", this.state);
-    if (this.props.editing ) {      
-      currentlyVisibleState = <EditKegForm keg = {this.props.selectedKeg} onEditKeg = {this.handleEditingKegInList} />
+    let buttonAction = null;
+    console.log("store state at render: ", this.props);
+
+    // decide which view to display
+    if (this.props.editing ) {      // display editing view
+      currentlyVisibleState = <EditKegForm 
+        keg = {this.props.selectedKeg} 
+        onEditKeg = {this.handleEditingKegInList} />
       buttonIcon = <ArrowBackIos />;
       buttonText = "Return to Keg Details";
-    } else if (this.props.selectedKeg != null) {
+      /////// This button action not working ///////
+      buttonAction = this.handleChangingSelectedKeg;
+    } else if (this.props.selectedKeg != null) {    // display keg details view
+      console.log("render selectedKeg state: ", this.props.selectedKeg)
       currentlyVisibleState = <KegDetails keg = {this.props.selectedKeg} 
-      onClickingOrder = {this.handleOrderingPint}
-      onClickingDelete = {this.handleDeletingKeg}
-      onClickingEdit = {this.handleEditClick} />
+        onClickingOrder = {this.handleOrderingPint}
+        onClickingDelete = {this.handleDeletingKeg}
+        onClickingEdit = {this.handleEditClick} />
       buttonIcon = <ArrowBackIos />;
       buttonText = "Return to Keg List";
-    }
-    else if (this.props.formVisibleOnPage) {
+      buttonAction = this.handleGoToKegList;
+    } else if (this.props.formVisibleOnPage) {      // displayNewKegForm 
       currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList} />;
       buttonIcon = <ArrowBackIos />;
       buttonText = "Return to Keg List";
-    } else {
-      // console.log(this.props.selectedKeg)
+      buttonAction = this.handleClick;
+    } else {        // display landing page
       currentlyVisibleState = <KegList kegList={this.props.masterKegList}
-      onClickingOrder= {this.handleQuickOrder}
-      onKegSelection={this.handleChangingSelectedKeg} />;
+        onClickingOrder= {this.handleQuickOrder}
+        onKegSelection={this.handleChangingSelectedKeg} />;
       buttonText = "Add A Keg";
       buttonIcon = <Add />;
+      buttonAction = this.handleClick;
     }
     return (
       <React.Fragment>
-        <Button onClick={this.handleClick} style={styledButton}>
+        <Button onClick={buttonAction} style={styledButton}>
           {buttonIcon}
           {buttonText}
         </Button>
@@ -148,7 +162,10 @@ class KegControl extends React.Component {
 }
 
 KegControl.propTypes = {
-  masterKegList: PropTypes.object
+  masterKegList: PropTypes.object,
+  formVisibleOnPage: PropTypes.bool,
+  editing: PropTypes.bool,
+  selectedKeg: PropTypes.object
 };
 
 const mapStateToProps = state => {

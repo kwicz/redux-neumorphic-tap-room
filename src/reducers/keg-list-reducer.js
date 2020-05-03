@@ -21,6 +21,7 @@ export default (state = {}, action) => {
     return newState;
   case c.BUY_PINT:
     const newRemainingPints = remainingPints - 1;
+    console.log("newRemainingPints: ", newRemainingPints);
     const newKegState = Object.assign({}, state, {
       [id]: {
         name: name,

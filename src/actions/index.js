@@ -37,13 +37,16 @@ export const buyPint = (keg) => {
 }
 
 export const selectedKeg = (keg) => {
+  console.log("action selectedKeg: ", keg);
   if (!keg) {
     return {
       type: 'SELECTED_KEG_NULL'
     }
   } else {
     const { name, brand, description, alcoholContent, price, remainingPints, id } = keg;
-    return {
+    console.log("return SELECTED_KEG as action type: ", keg.type)
+    console.log("return SELECTED_KEG as keg: ", keg)
+    const selectedKeg = {
       type: 'SELECTED_KEG',
       name: name,
       brand: brand,
@@ -53,6 +56,8 @@ export const selectedKeg = (keg) => {
       remainingPints: remainingPints,
       id: id
     }
+    console.log("ACTION SELECTEDKEG: ", selectedKeg);
+    return selectedKeg;
   }
 }
 
