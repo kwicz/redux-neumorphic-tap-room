@@ -4,6 +4,8 @@
 
 #### By K. Wicz
 
+[View Live](https://kwicz.github.io/redux-neumorphic-tap-room/)
+
 ## Component Organization
 
 |||
@@ -64,6 +66,8 @@ _Have a bug or an issue with this application? [Open a new issue](https://github
 * This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 * [Material-UI](https://material-ui.com/), A React UI Kit built on Google's official Material Components Web library.
 * [Neumorpism Tutorial](https://uxplanet.org/neumorphism-in-user-interface-tutorial-c353698ac5c0) by Kanhaiya Sharma
+* Wireframe designed in [Figma](https://www.figma.com/)
+* Component Diagram designed in [diagrams.net](https://app.diagrams.net/)
 
 
 ## License
