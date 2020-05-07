@@ -66,7 +66,7 @@ class KegControl extends React.Component {
     dispatch(action);
     const action2 = a.selectedKeg(masterKegList[id]);
     console.log("updatedKeg: ", action2)
-    dispatch(action);
+    dispatch(action2);
     console.log("masterKegList new state: ", masterKegList[id].remainingPints);
     console.log("selectedKeg state: ", this.props.selectedKeg.remainingPints);
   }
@@ -89,7 +89,11 @@ class KegControl extends React.Component {
   handleEditingKegInList = (kegToEdit) => {
     const { dispatch } = this.props;
     const action = a.addKeg(kegToEdit);
-    dispatch(action);  
+    dispatch(action);
+    const action2 = a.editing();
+    dispatch(action2);
+    const action3 = a.selectedKeg(kegToEdit);
+    dispatch(action3); 
   }
 
   // Allows user to remove a keg from the tap

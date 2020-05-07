@@ -12,7 +12,8 @@ function EditKegForm (props) {
       description: event.target.description.value, 
       alcoholContent: event.target.alcoholContent.value, 
       price: event.target.price.value, 
-      id: props.id
+      remainingPints: props.keg.remainingPints,
+      id: props.keg.id
     });
   }
   return (

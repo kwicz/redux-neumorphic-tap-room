@@ -17,7 +17,7 @@ function KegList(props){
     <React.Fragment  >
       <Grid className={classes.root} container spacing={2}>
         {Object.values(props.kegList).map((keg) => {
-          return <Grid item item xs={6} sm={4} md={3} lg={2}>
+          return <Grid key={keg.id} item item xs={6} sm={4} md={3} lg={2}>
             <Keg 
               whenKegClicked = { props.onKegSelection }
               onClickingOrder = { props.onClickingOrder }
@@ -27,7 +27,6 @@ function KegList(props){
               alcoholContent={keg.alcoholContent}
               price={keg.price}
               remainingPints={keg.remainingPints}
-              key={keg.id}
               id={keg.id}/>
           </Grid>
         })}

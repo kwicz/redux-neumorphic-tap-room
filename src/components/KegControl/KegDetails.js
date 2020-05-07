@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import AttachMoney from '@material-ui/icons/AttachMoney';
 import Clear from '@material-ui/icons/Clear';
 import Create from '@material-ui/icons/Create';
+import { connect } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -72,7 +73,7 @@ function KegDetails(props) {
            {keg.alcoholContent} ALCOHOL CONTENT
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-           {keg.remainingPints} REMAINING PINTS
+           {props.kegList[keg.id].remainingPints} REMAINING PINTS
           </Typography>
           {pintsRemaing}
         </CardContent>
@@ -95,5 +96,13 @@ KegDetails.propTypes = {
   onClickingEdit: PropTypes.func,
   onClickingDelete: PropTypes.func
 };
+
+const mapStateToProps = state => {
+  return {
+    kegList: state.masterKegList
+  }
+}
+
+KegDetails = connect(mapStateToProps)(KegDetails);
 
 export default KegDetails;

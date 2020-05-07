@@ -6,10 +6,10 @@
 
 ## Components Hierarchy
 
-![Diagram](public/TaproomDiagram.png)
+![Diagram](TaproomDiagram.png)
 
 ## Site Components Wireframe
-![Wireframe](public/TaproomWireframe.png)
+![Wireframe](TaproomWireframe.png)
 
 ## User Stories
 
