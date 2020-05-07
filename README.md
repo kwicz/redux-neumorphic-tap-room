@@ -4,12 +4,12 @@
 
 #### By K. Wicz
 
-## Components Hierarchy
+## Component Organization
 
-![Diagram](TaproomDiagram.png)
-
-## Site Components Wireframe
-![Wireframe](TaproomWireframe.png)
+|||
+|:---:|:---:|
+|Component Diagram|![Diagram](TaproomDiagram.png)|
+|Site Wireframe|![Wireframe](TaproomWireframe.png)|
 
 ## User Stories
 
