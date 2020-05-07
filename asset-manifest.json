@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/redux-neumorphic-tap-room/static/css/main.121dd35d.chunk.css",
+    "main.js": "/redux-neumorphic-tap-room/static/js/main.1c7b78f1.chunk.js",
+    "main.js.map": "/redux-neumorphic-tap-room/static/js/main.1c7b78f1.chunk.js.map",
+    "runtime-main.js": "/redux-neumorphic-tap-room/static/js/runtime-main.8ee1f6de.js",
+    "runtime-main.js.map": "/redux-neumorphic-tap-room/static/js/runtime-main.8ee1f6de.js.map",
+    "static/css/2.f426b0f3.chunk.css": "/redux-neumorphic-tap-room/static/css/2.f426b0f3.chunk.css",
+    "static/js/2.197d3baf.chunk.js": "/redux-neumorphic-tap-room/static/js/2.197d3baf.chunk.js",
+    "static/js/2.197d3baf.chunk.js.map": "/redux-neumorphic-tap-room/static/js/2.197d3baf.chunk.js.map",
+    "index.html": "/redux-neumorphic-tap-room/index.html",
+    "precache-manifest.456dd0ea475b4f34155832dedb201789.js": "/redux-neumorphic-tap-room/precache-manifest.456dd0ea475b4f34155832dedb201789.js",
+    "service-worker.js": "/redux-neumorphic-tap-room/service-worker.js",
+    "static/css/2.f426b0f3.chunk.css.map": "/redux-neumorphic-tap-room/static/css/2.f426b0f3.chunk.css.map",
+    "static/css/main.121dd35d.chunk.css.map": "/redux-neumorphic-tap-room/static/css/main.121dd35d.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8ee1f6de.js",
+    "static/css/2.f426b0f3.chunk.css",
+    "static/js/2.197d3baf.chunk.js",
+    "static/css/main.121dd35d.chunk.css",
+    "static/js/main.1c7b78f1.chunk.js"
+  ]
+}
