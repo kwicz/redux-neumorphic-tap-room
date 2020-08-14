@@ -40,8 +40,18 @@ class KegControl extends React.Component {
   // Allows user to view details of a selected keg
   handleChangingSelectedKeg = (id) => {
     const { dispatch, masterKegList } = this.props;
+    console.log("id: ", id)
     const action = a.selectedKeg(masterKegList[id]);
     dispatch (action);
+  }
+
+  // Allows user to view details of a selected keg
+  handleBackToSelectedKeg = () => {
+    const { dispatch, masterKegList } = this.props;
+    const action = a.toggleForm();
+    dispatch (action);
+    const action2 = a.editing();
+    dispatch (action2);
   }
 
   // Allows user to view KegList
@@ -126,7 +136,8 @@ class KegControl extends React.Component {
       buttonIcon = <ArrowBackIos />;
       buttonText = "Return to Keg Details";
       /////// This button action not working ///////
-      buttonAction = this.handleChangingSelectedKeg;
+      // buttonAction = this.handleChangingSelectedKeg;
+      buttonAction = this.handleBackToSelectedKeg;
     } else if (this.props.selectedKeg != null) {    // display keg details view
       console.log("render selectedKeg state: ", this.props.selectedKeg)
       currentlyVisibleState = <KegDetails keg = {this.props.selectedKeg} 

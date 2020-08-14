@@ -8,6 +8,12 @@ export const toggleForm = () => ({
   type: 'TOGGLE_FORM'
 });
 
+export const editing = () => {
+  return {
+    type: 'EDITING'
+  }
+}
+
 export const addKeg = (keg) => {
   const { name, brand, description, alcoholContent, price, remainingPints, id } = keg;
   return {
@@ -61,8 +67,3 @@ export const selectedKeg = (keg) => {
   }
 }
 
-export const editing = () => {
-  return {
-    type: 'EDITING'
-  }
-}
