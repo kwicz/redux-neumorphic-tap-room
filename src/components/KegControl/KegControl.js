@@ -18,10 +18,6 @@ class KegControl extends React.Component {
     console.log("handleClick Props: ", this.props)
     const action = a.toggleForm();
     dispatch(action);
-    // const action2 = a.editing();
-    // dispatch(action2);
-    // const action3 = a.selectedKeg();
-    // dispatch(action3);
   }
 
   // Allows users to add a new Keg to the MasterKegList object
