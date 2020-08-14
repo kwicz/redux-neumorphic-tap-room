@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/redux-neumorphic-tap-room/precache-manifest.456dd0ea475b4f34155832dedb201789.js"
+  "/redux-neumorphic-tap-room/precache-manifest.a676b4e8011f82f4a64152e0369e533a.js"
 );
 
 self.addEventListener('message', (event) => {
