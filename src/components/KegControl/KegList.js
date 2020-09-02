@@ -21,6 +21,7 @@ function KegList(props){
             <Keg 
               whenKegClicked = { props.onKegSelection }
               onClickingOrder = { props.onClickingOrder }
+              onClickingAdd = { props.onClickingAdd }
               name={keg.name}
               brand={keg.brand}
               description={keg.description}

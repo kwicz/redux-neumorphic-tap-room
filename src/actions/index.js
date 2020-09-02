@@ -28,6 +28,20 @@ export const addKeg = (keg) => {
   }
 }
 
+export const refillKeg = (keg) => {
+  const { name, brand, description, alcoholContent, price, id } = keg;
+  return {
+    type: 'REFILL_KEG',
+    name: name,
+    brand: brand,
+    description: description,
+    alcoholContent: alcoholContent,
+    price: price,
+    remainingPints: 124,
+    id: id
+  }
+}
+
 export const buyPint = (keg) => {
   const { name, brand, description, alcoholContent, price, remainingPints, id } = keg;
   return {

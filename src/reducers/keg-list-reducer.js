@@ -15,6 +15,18 @@ export default (state = {}, action) => {
         id: id
       }
     });
+  case c.REFILL_KEG:
+    return Object.assign({}, state, {
+      [id]: {
+        name: name,
+        brand: brand,
+        description: description,
+        alcoholContent: alcoholContent,
+        price: price,
+        remainingPints: 124,
+        id: id
+      }
+    });
   case c.DELETE_KEG:
     const newState = { ...state };
     delete newState[id];

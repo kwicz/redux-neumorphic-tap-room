@@ -15,7 +15,7 @@ export default {
       description: "Fruity, but in a canine kind of way.",
       alcoholContent: "4%",
       price: 5,
-      remainingPints: 0,
+      remainingPints: 2,
       key: id1,
       id: id1
     },

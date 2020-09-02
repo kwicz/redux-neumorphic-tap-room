@@ -37,6 +37,15 @@ class KegControl extends React.Component {
     dispatch(action);
   }
 
+  // Allows user to add a keg from the landing page.
+  handleQuickAdd = (id, remainingPints) => {
+    const { dispatch, masterKegList } = this.props;
+    const selectedKeg = masterKegList[id];
+    const action = a.refillKeg(selectedKeg);
+    console.log("action: ", action)
+    dispatch(action);
+  }
+
   // Allows user to view details of a selected keg
   handleChangingSelectedKeg = (id) => {
     const { dispatch, masterKegList } = this.props;
@@ -60,9 +69,6 @@ class KegControl extends React.Component {
     const action = a.selectedKeg();
     dispatch (action);
   }
-
-
-  //*************I'm leaving this bit of commented code here because I'd love to discuss it in a meeting.  I can't figure out how to get this one to work. */
 
   // Allows user to buy a pint from the details page.
   handleOrderingPint = (id) => {
@@ -155,6 +161,7 @@ class KegControl extends React.Component {
     } else {        // display landing page
       currentlyVisibleState = <KegList kegList={this.props.masterKegList}
         onClickingOrder= {this.handleQuickOrder}
+        onClickingAdd= {this.handleQuickAdd}
         onKegSelection={this.handleChangingSelectedKeg} />;
       buttonText = "Add A Keg";
       buttonIcon = <Add />;

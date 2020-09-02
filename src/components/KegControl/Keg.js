@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import AttachMoney from '@material-ui/icons/AttachMoney';
 import List from '@material-ui/icons/List';
+import Add from '@material-ui/icons/Add';
 import IconButton from '@material-ui/core/IconButton';
 
 const useStyles = makeStyles((theme) => ({
@@ -24,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Keg(props) {
+  console.log("props: ")
   const classes = useStyles();
   const iconButtonStyle = {
     backgroundColor: "#E0E5EC",
@@ -31,12 +33,12 @@ function Keg(props) {
     margin: 6,
     color: "#e53935"
   }
-  const iconButtonStyleDisabled = {
-    backgroundColor: "#E0E5EC",
-    boxShadow: "9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5)",
-    margin: 6,
-    color: "rgb(163,177,198,0.6)"
-  }
+  // const iconButtonStyleDisabled = {
+  //   backgroundColor: "#E0E5EC",
+  //   boxShadow: "9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5)",
+  //   margin: 6,
+  //   color: "rgb(163,177,198,0.6)"
+  // }
   let orderButton = <IconButton 
     style={iconButtonStyle} 
     onClick={()=> props.onClickingOrder(props.id, props.remainingPints)}>
@@ -45,10 +47,11 @@ function Keg(props) {
   let cardContent = <CardContent>{props.remainingPints} pints left</CardContent>;
   if (props.remainingPints === 0) {
     orderButton = <IconButton 
-      style={iconButtonStyleDisabled} 
-      disabled
-      onClick={()=> props.onClickingOrder(props.id, props.remainingPints)}>
-        <AttachMoney />
+      // style={iconButtonStyleDisabled} 
+      style={iconButtonStyle} 
+      // disabled
+      onClick={()=> props.onClickingAdd(props.id, props.remainingPints)}>
+        <Add />
       </IconButton>;
     cardContent = <CardContent>SOLD OUT!</CardContent>;
   }
